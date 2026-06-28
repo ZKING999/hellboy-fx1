@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hellboy FX - Forex Trading Education & Signals</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f0f1e 100%);
+            color: #e5e7eb;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        /* Navigation */
+        nav {
+            border-bottom: 1px solid rgba(159, 18, 57, 0.3);
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, #ef4444, #f97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        nav a {
+            color: #d1d5db;
+            text-decoration: none;
+            margin-left: 2.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: #ef4444;
+        }
+        
+        nav a:last-child {
+            color: #22c55e;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            padding: 5rem 2rem;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.15;
+            color: #f1f5f9;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #ef4444, #f97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .bio {
+            color: #9ca3af;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #dc2626, #ea580c);
+            padding: 0.875rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 700;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(239, 68, 68, 0.5);
+        }
+        
+        .hero-right {
+            background: linear-gradient(135deg, rgba(159, 18, 57, 0.2), rgba(234, 88, 12, 0.2));
+            border: 1px solid rgba(159, 18, 57, 0.5);
+            border-radius: 1rem;
+            padding: 2.5rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        .hero-feature {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(159, 18, 57, 0.3);
+        }
+        
+        .hero-feature:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .hero-feature span {
+            font-size: 1.75rem;
+        }
+        
+        /* Sections */
+        .section {
+            border-top: 1px solid rgba(159, 18, 57, 0.3);
+            padding: 4rem 0;
+        }
+        
+        h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 3rem;
+            color: #f1f5f9;
+        }
+        
+        h3 {
+            color: #fca5a5;
+            font-weight: 700;
+        }
+        
+        /* Social Grid */
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .social-card {
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid rgba(159, 18, 57, 0.5);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+        }
+        
+        .social-card:hover {
+            border-color: #ef4444;
+            background: rgba(159, 18, 57, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(239, 68, 68, 0.2);
+        }
+        
+        .social-card a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .social-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .social-card strong {
+            color: #f1f5f9;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .social-card p {
+            color: #9ca3af;
+            font-size: 0.85rem;
+        }
+        
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(159, 18, 57, 0.5);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .service-card:hover {
+            border-color: #ef4444;
+            background: rgba(159, 18, 57, 0.15);
+            transform: translateY(-3px);
+        }
+        
+        .service-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .service-card p {
+            color: #9ca3af;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, rgba(159, 18, 57, 0.2), rgba(234, 88, 12, 0.1));
+            border: 1px solid rgba(159, 18, 57, 0.5);
+            border-radius: 1rem;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #ef4444;
+        }
+        
+        .stat-label {
+            color: #9ca3af;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Contact Grid */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        
+        .contact-item h3 {
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+        
+        .contact-item p {
+            color: #9ca3af;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-item a {
+            color: #fca5a5;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: color 0.3s;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+        
+        .contact-item a:hover {
+            color: #ef4444;
+        }
+        
+        /* Fiverr Section */
+        .fiverr-section {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.5);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        .fiverr-link {
+            color: #22c55e;
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.3s;
+        }
+        
+        .fiverr-link:hover {
+            color: #16a34a;
+        }
+        
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(159, 18, 57, 0.3);
+            background: rgba(30, 41, 59, 0.8);
+            padding: 2.5rem;
+            text-align: center;
+            color: #6b7280;
+            margin-top: 4rem;
+        }
+        
+        footer p {
+            margin: 0.5rem 0;
+        }
+        
+        footer p:first-child {
+            font-weight: 700;
+            color: #d1d5db;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 3rem 1rem;
+                gap: 2rem;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+            
+            nav {
+                padding: 0.75rem 1rem;
+            }
+            
+            .nav-content {
+                flex-wrap: wrap;
+            }
+            
+            nav a {
+                margin-left: 1rem;
+                font-size: 0.75rem;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .social-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-content">
+            <div class="logo">HELLBOY FX</div>
+            <div>
+                <a href="#services">Services</a>
+                <a href="#community">Community</a>
+                <a href="#contact">Contact</a>
+                <a href="https://wa.me/message/RVTKXH7UZYU6C1" target="_blank">WhatsApp</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div>
+            <h1>Master Forex <span class="gradient-text">Trading & Signals</span></h1>
+            <p class="bio">🏆 Gold & Forex Educator | XAUUSD Specialist</p>
+            <p class="bio">⚡ Daily Analysis | MT4/MT5 Expert | Algo Trading | Free Telegram</p>
+            <a href="https://t.me/hellboy_fx1" target="_blank" class="cta-button">Join Our Community</a>
+            <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #6b7280;">500+ active traders | Daily signals | Expert guidance</p>
+        </div>
+        <div class="hero-right">
+            <div class="hero-feature" style="color: #fca5a5;">
+                <span>📈</span>
+                <span>Real-time Market Analysis</span>
+            </div>
+            <div class="hero-feature" style="color: #fed7aa;">
+                <span>⚡</span>
+                <span>AI Trading Tools & EAs</span>
+            </div>
+            <div class="hero-feature" style="color: #fca5a5;">
+                <span>👥</span>
+                <span>Active Trading Community</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Links -->
+    <div class="container section">
+        <h2>Connect With Shan</h2>
+        <div class="social-grid">
+            <div class="social-card">
+                <a href="https://twitter.com/XAUSDbyShaan" target="_blank">
+                    <span class="social-icon">𝕏</span>
+                    <strong>X / Twitter</strong>
+                    <p>@XAUSDbyShaan</p>
+                </a>
+            </div>
+            <div class="social-card">
+                <a href="https://instagram.com/hellboy_fx" target="_blank">
+                    <span class="social-icon">📸</span>
+                    <strong>Instagram</strong>
+                    <p>@hellboy_fx</p>
+                </a>
+            </div>
+            <div class="social-card">
+                <a href="https://threads.net/@shancrt369" target="_blank">
+                    <span class="social-icon">⚡</span>
+                    <strong>Threads</strong>
+                    <p>@shancrt369</p>
+                </a>
+            </div>
+            <div class="social-card">
+                <a href="https://t.me/hellboy_fx1" target="_blank">
+                    <span class="social-icon">✈️</span>
+                    <strong>Telegram Group</strong>
+                    <p>@hellboy_fx1</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services -->
+    <div class="container section" id="services">
+        <h2>Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Forex Education & Coaching</h3>
+                <p>Learn price action, ICT strategy, market structure, and professional trading psychology.</p>
+            </div>
+            <div class="service-card">
+                <h3>Trading Signals & Analysis</h3>
+                <p>Real-time daily signals, market analysis, and entry/exit strategies for EURUSD, XAUUSD, and pairs.</p>
+            </div>
+            <div class="service-card">
+                <h3>MQL5 Expert Advisors</h3>
+                <p>Custom grid, martingale, SMC/ICT-based EAs. Trading automation built for your strategy.</p>
+            </div>
+            <div class="service-card">
+                <h3>AI-Powered Trading Tools</h3>
+                <p>Groq API integration, automated bots, Pine Script indicators for TradingView.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Community -->
+    <div class="container section" id="community">
+        <div class="contact-section">
+            <h2>AK Forex Trading Room</h2>
+            <p style="color: #d1d5db; margin-bottom: 1.5rem;">Join 500+ active traders in our exclusive community. Daily market analysis, real-time signals, ICT strategy breakdowns, and direct access to expert guidance. Get onboarded through Exness IB for competitive trading conditions.</p>
+            <div class="stats">
+                <div>
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Active Members</div>
+                </div>
+                <div>
+                    <div class="stat-number">Daily</div>
+                    <div class="stat-label">Signals & Analysis</div>
+                </div>
+                <div>
+                    <div class="stat-number">Exness</div>
+                    <div class="stat-label">IB Referral</div>
+                </div>
+            </div>
+            <a href="https://t.me/hellboy_fx1" target="_blank" class="cta-button">Join Telegram Group</a>
+        </div>
+    </div>
+
+    <!-- Fiverr -->
+    <div class="container section">
+        <h2>Hire on Fiverr</h2>
+        <div class="fiverr-section">
+            <p style="margin-bottom: 1rem;">Custom MQL5 EAs, trading bots, Pine Script indicators, and AI-powered trading solutions.</p>
+            <a href="https://fiverr.com/zeshan192" target="_blank" class="fiverr-link">Visit Fiverr Profile → Zeshan192</a>
+        </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="container section" id="contact">
+        <h2>Get In Touch</h2>
+        <div class="contact-grid">
+            <div class="contact-item">
+                <h3>📧 Email</h3>
+                <p>crt.shan369@gmail.com</p>
+                <a href="mailto:crt.shan369@gmail.com">Send Email →</a>
+            </div>
+            <div class="contact-item">
+                <h3>💬 WhatsApp</h3>
+                <p>+92 329 4697217</p>
+                <a href="https://wa.me/message/RVTKXH7UZYU6C1" target="_blank">Chat on WhatsApp →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Hellboy FX | Forex Trading Education & Signals</p>
+        <p style="margin-top: 1rem;">Based in Burewala, Pakistan | Serving global traders</p>
+        <p style="margin-top: 1rem; font-size: 0.75rem;">Disclaimer: Past trading results do not guarantee future performance. Trading involves risk.</p>
+    </footer>
+</body>
+</html>
